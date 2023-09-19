@@ -19,11 +19,18 @@ public class ObstacleGeneration : MonoBehaviour
 
         
         if (leftRight == 0) {       // Generate correct tile on right side
-            Instantiate(wrongTiles[wrongTileNum], transform.position + rightOffset, Quaternion.identity);
-            Instantiate(correctTile, transform.position + leftOffset, Quaternion.identity);
+            GameObject leftTile = Instantiate(correctTile, transform.position + leftOffset, Quaternion.identity);
+            GameObject rightTile = Instantiate(wrongTiles[wrongTileNum], transform.position + rightOffset, Quaternion.identity);
+
+            leftTile.transform.parent = transform;
+            rightTile.transform.parent = transform;
+            
         } else {        //Generate correct tile on lect side
-            Instantiate(wrongTiles[wrongTileNum], transform.position + leftOffset, Quaternion.identity);
-            Instantiate(correctTile, transform.position + rightOffset, Quaternion.identity);
+            GameObject leftTile = Instantiate(wrongTiles[wrongTileNum], transform.position + leftOffset, Quaternion.identity);
+            GameObject rightTile = Instantiate(correctTile, transform.position + rightOffset, Quaternion.identity);
+            
+            leftTile.transform.parent = transform;
+            rightTile.transform.parent = transform;
         }
         
     }
