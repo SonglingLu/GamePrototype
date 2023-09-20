@@ -14,7 +14,7 @@ public class ObstacleGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        leftRight = Random.Range(0, 2);
+        leftRight = Random.Range(0, 10000) % 2;
         wrongTileNum = Random.Range(0, wrongTiles.Length);
 
         
@@ -24,6 +24,8 @@ public class ObstacleGeneration : MonoBehaviour
 
             leftTile.transform.parent = transform;
             rightTile.transform.parent = transform;
+            leftTile.AddComponent<ShiftLeftTile>();
+            rightTile.AddComponent<ShiftRightTile>();
             
         } else {        //Generate correct tile on lect side
             GameObject leftTile = Instantiate(wrongTiles[wrongTileNum], transform.position + leftOffset, Quaternion.identity);
@@ -31,6 +33,8 @@ public class ObstacleGeneration : MonoBehaviour
             
             leftTile.transform.parent = transform;
             rightTile.transform.parent = transform;
+            leftTile.AddComponent<ShiftLeftTile>();
+            rightTile.AddComponent<ShiftRightTile>();
         }
         
     }

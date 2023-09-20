@@ -15,10 +15,11 @@ public class ShiftTile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > -5) {
-            transform.Translate(Vector3.left * 5);
-        } else if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < 5) {
-            transform.Translate(Vector3.right * 5);
-        }
+        // if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > -5) {
+        //     transform.Translate(Vector3.left * 5);
+        // } else if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < 5) {
+        //     transform.Translate(Vector3.right * 5);
+        // }
+        Debug.Log("ShiftTile.cs: Update()");
     }
 }
