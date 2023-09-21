@@ -24,12 +24,14 @@ public class ObstacleGeneration : MonoBehaviour
 
             leftTile.transform.parent = transform;
             rightTile.transform.parent = transform;
-        } else {        //Generate correct tile on lect side
+            rightTile.AddComponent<WrongTile>();
+        } else {        //Generate correct tile on left side
             GameObject leftTile = Instantiate(wrongTiles[wrongTileNum], transform.position + leftOffset, Quaternion.identity);
             GameObject rightTile = Instantiate(correctTile, transform.position + rightOffset, Quaternion.identity);
             
             leftTile.transform.parent = transform;
             rightTile.transform.parent = transform;
+            leftTile.AddComponent<WrongTile>();
         }
         
     }
